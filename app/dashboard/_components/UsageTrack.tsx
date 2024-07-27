@@ -6,12 +6,14 @@ import { AIOutput } from '@/utils/schema'
 import { useUser } from '@clerk/nextjs'
 import { eq } from 'drizzle-orm'
 import React, { useEffect } from 'react'
+import { HISTORY } from '../history/page'
 
 function UsageTrack () {
     const {user} = useUser()
 
    const GetData = async()=>{
-    const result = await db.select().from(AIOutput).where(eq(AIOutput.createdBy, user?.primaryEmailAddress?.emailAddress));
+    {/* @ts-ignore*/}
+    const result:HISTORY[] = await db.select().from(AIOutput).where(eq(AIOutput.createdBy, user?.primaryEmailAddress?.emailAddress));
 
     GetTotalUsage(result)
    }
@@ -20,7 +22,7 @@ function UsageTrack () {
        user&&GetData();
     }, [user])
 
-    const GetTotalUsage = (result:)=>{
+    const GetTotalUsage = (result:HISTORY)=>{
         let total:number = 0;
         result.forEach(element => {
             total += Number(element.aiResponse?.length)
