@@ -19,3 +19,11 @@ Create Custom Sign in And Signup Page
 ## Dashboard Layout
 
 /dashboard => Route
+layout.tsx in dashboard route
+Sidebar Nav => All Sidebars Menu
+
+i) Here I have learnt about map() to render all menu items
+ii) childern will be in the main page file
+iii) Find active path using usePathname();
+
+## Display Template
