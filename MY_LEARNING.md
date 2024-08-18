@@ -27,3 +27,7 @@ ii) childern will be in the main page file
 iii) Find active path using usePathname();
 
 ## Display Template
+
+## Add Rich Text editor
+We are using Toast UI Library
+npm install --save @toast-ui/react-editor

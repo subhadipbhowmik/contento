@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React, { useEffect } from 'react'
 import MenuList from '../(data)/MenuList'
 import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 
 function SideNav() {
 
@@ -16,7 +17,9 @@ function SideNav() {
   return (
     <div className='h-screen p-5 shadow-sm border'>
         <div className='flex justify-center'>
+          <Link href={'/dashboard'}>
         <Image width={120} height={40} alt='logo' src={'/logo.svg'}/>
+        </Link>
         </div>
 
         <hr className='my-5 border'/>

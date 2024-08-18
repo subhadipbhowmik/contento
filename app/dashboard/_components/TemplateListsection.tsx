@@ -12,14 +12,13 @@ export interface TEMPLATE{
     form?:FORM[]
 }
 
-
 export interface FORM{
     label: string,
     field: string,
     name: string,
     required?:boolean
 }
-function TemplateListsection({userSearchInput}:any) {
+function TemplateListSection({userSearchInput}:any) {
 
   // we will check the input and on that basis the cards will be visible
 
@@ -48,4 +47,4 @@ function TemplateListsection({userSearchInput}:any) {
   )
 }
 
-export default TemplateListsection
+export default TemplateListSection
