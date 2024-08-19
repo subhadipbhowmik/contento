@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import SearchSection from './_components/SearchSection'
-import TemplateListsection from './_components/TemplateListSection'
+import TemplateListSection from './_components/TemplateListSection'
 
 function Dashboard() {
     const [userSearchInput, setUserSearchInput ] = useState<string>()
@@ -10,7 +10,7 @@ function Dashboard() {
       {/* Search section  */}
       <SearchSection onSearchInput={(value:string)=>setUserSearchInput(value)}/>
       {/* TemplateList Section  */}
-      <TemplateListsection userSearchInput={userSearchInput}/>
+      <TemplateListSection userSearchInput={userSearchInput}/>
     </div>
   )
 }
