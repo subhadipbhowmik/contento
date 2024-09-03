@@ -1,3 +1,4 @@
+import { UserButton } from '@clerk/nextjs'
 import { Search } from 'lucide-react'
 import React from 'react'
 
@@ -12,8 +13,9 @@ function Header() {
            />
       </div>
       {/* message  */}
-      <div>
-        <h2 className='bg-primary p-1 rounded-full text-xs text-white px-2'>Join Membership just for $9.99/Month</h2>
+      <div className='flex gap-4'>
+        <h2 className='bg-primary p-1 rounded-full text-xs text-white px-2'>Join Membership just for 29/Month</h2>
+        <UserButton/>
       </div>
     </div>
   )
