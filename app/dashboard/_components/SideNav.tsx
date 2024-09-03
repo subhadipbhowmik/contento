@@ -5,6 +5,7 @@ import MenuList from '../(data)/MenuList'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { Satisfy } from "next/font/google";
+import UsageTrack from './UsageTrack'
 
 const satisfy = Satisfy({ weight: '400', subsets: ['latin'] });
 
@@ -19,7 +20,7 @@ function SideNav() {
 
 
   return (
-    <div className='h-screen p-5 shadow-sm border'>
+    <div className='h-screen relative p-5 shadow-sm border'>
         <div className='flex justify-center'>
           <Link href={'/dashboard'}>
         {/* <Image width={120} height={40} alt='logo' src={'/logo.svg'}/> */}
@@ -44,7 +45,9 @@ function SideNav() {
                 </Link>
             ))}
         </div>
-      
+      <div className='absolute bottom-10 left-0 w-full '>
+        <UsageTrack/>
+      </div>
     </div>
   )
 }

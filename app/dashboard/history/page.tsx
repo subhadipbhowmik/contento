@@ -9,7 +9,6 @@ interface AIOutputRecord {
   formdata: string;
   aiResponse: string | null;
   templateSlug: string;
-  createdBy: string;
   createdAt: string | null;
 }
 
@@ -39,20 +38,26 @@ const History: React.FC = () => {
       : text;
   };
 
+  // Function to count words in the AI Response
+  const countWords = (text: string | null) => {
+    if (!text) return 0;
+    return text.trim().split(/\s+/).length;
+  };
+
   return (
     <div className='p-6'>
       <h2 className='text-xl font-bold mb-4'>History</h2>
       {historyData.length > 0 ? (
         <table className='min-w-full bg-white'>
-        
+          <thead>
             <tr>
               <th className='px-4 py-2'>Form Data</th>
               <th className='px-4 py-2'>AI Response</th>
+              <th className='px-4 py-2'>Word Count</th>
               <th className='px-4 py-2'>Template Slug</th>
-              <th className='px-4 py-2'>Created By</th>
               <th className='px-4 py-2'>Created At</th>
             </tr>
-        
+          </thead>
           <tbody>
             {historyData.map((item) => (
               <tr key={item.id}>
@@ -60,8 +65,8 @@ const History: React.FC = () => {
                 <td className='border px-4 py-2'>
                   {truncateText(item.aiResponse, 10)}
                 </td>
+                <td className='border px-4 py-2'>{countWords(item.aiResponse)}</td>
                 <td className='border px-4 py-2'>{item.templateSlug}</td>
-                <td className='border px-4 py-2'>{item.createdBy}</td>
                 <td className='border px-4 py-2'>{item.createdAt}</td>
               </tr>
             ))}
