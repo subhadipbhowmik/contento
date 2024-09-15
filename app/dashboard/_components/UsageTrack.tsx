@@ -8,8 +8,12 @@ import React from 'react'
 
 async function UsageTrack() {
 
-    const {user} = useUser;
-    const result = await db.select().from(AIOutput).where(eq(AIOutput.createdBy,user?.prima))
+    const {user} = useUser();
+    const result = await db.select().from(AIOutput).where(eq(AIOutput.createdBy, user?.primaryEmailAddress?.emailAddress));
+
+    const getTotalUsage = ()=>{
+      
+    }
 
   return (
     <div className='m-5'>

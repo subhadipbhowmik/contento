@@ -9,44 +9,42 @@ import UsageTrack from './UsageTrack'
 
 const satisfy = Satisfy({ weight: '400', subsets: ['latin'] });
 
-
 function SideNav() {
 
   const path = usePathname();
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(path)
-  }, []);
-
+  }, [path]); // Ensure the effect runs when `path` changes
 
   return (
     <div className='h-screen relative p-5 shadow-sm border'>
-        <div className='flex justify-center'>
-          <Link href={'/dashboard'}>
-        {/* <Image width={120} height={40} alt='logo' src={'/logo.svg'}/> */}
-        <h2 className={`text-4xl font-bold ${satisfy.className} bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600 bg-clip-text text-transparent`}>
-          Contento
-        </h2>
+      <div className='flex justify-center'>
+        <Link href={'/dashboard'}>
+          {/* <Image width={120} height={40} alt='logo' src={'/logo.svg'}/> */}
+          <h2 className={`text-4xl font-bold ${satisfy.className} bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600 bg-clip-text text-transparent`}>
+            Contento
+          </h2>
         </Link>
-        </div>
+      </div>
 
-        <hr className='my-5 border'/>
+      <hr className='my-5 border' />
 
-        {/* all menu list  */}
-        <div className='mt-3'>
-            {MenuList.map((menu, idx)=>(
-              <Link href={menu.path}>
-                <div key={idx} className={`flex items-center rounded-lg gap-2 mb-2 p-3 cursor-pointer hover:bg-primary hover:text-white
-                ${path==menu.path && 'bg-primary text-white'}
+      {/* all menu list  */}
+      <div className='mt-3'>
+        {MenuList.map((menu, idx) => (
+          <Link key={idx} href={menu.path}> {/* key is now on Link */}
+            <div className={`flex items-center rounded-lg gap-2 mb-2 p-3 cursor-pointer hover:bg-primary hover:text-white
+                ${path == menu.path && 'bg-primary text-white'}
                 `}>
-                    <menu.icon className='h-6 w-6'/>
-                    <h2>{menu.name}</h2>
-                </div>
-                </Link>
-            ))}
-        </div>
+              <menu.icon className='h-6 w-6' />
+              <h2>{menu.name}</h2>
+            </div>
+          </Link>
+        ))}
+      </div>
       <div className='absolute bottom-10 left-0 w-full '>
-        <UsageTrack/>
+        <UsageTrack />
       </div>
     </div>
   )
