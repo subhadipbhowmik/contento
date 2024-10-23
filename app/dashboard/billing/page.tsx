@@ -106,7 +106,7 @@ function billing() {
         </h2>
 
         <p className="mt-2 sm:mt-4">
-          <strong className="text-3xl font-bold text-gray-900 sm:text-4xl"> 0$ </strong>
+          <strong className="text-3xl font-bold text-gray-900 sm:text-4xl"> 0 </strong>
 
           <span className="text-sm font-medium text-gray-700">/month</span>
         </p>
@@ -192,7 +192,7 @@ function billing() {
         </h2>
 
         <p className="mt-2 sm:mt-4">
-          <strong className="text-3xl font-bold text-gray-900 sm:text-4xl"> 9.99$ </strong>
+          <strong className="text-3xl font-bold text-gray-900 sm:text-4xl"> 99 RS </strong>
 
           <span className="text-sm font-medium text-gray-700">/month</span>
         </p>

@@ -40,13 +40,13 @@ function CreateNewContent(props:PROPS) {
      * @param formData 
      * @returns 
      */
-    const GenerateAIContent=async(formData:any)=>{
-        if(totalUsage>=10000&&!userSubscription)
-            {
-                console.log("Please Upgrade");
-                router.push('/dashboard/billing')
-                return ;
-            }
+    const GenerateAIContent = async(formData:any)=>{
+        // if(totalUsage>=1000 && !userSubscription)
+        //     {
+        //         console.log("Please Upgrade");
+        //         router.push('/dashboard/billing')
+        //         return ;
+        //     }
         setLoading(true);
         const SelectedPrompt=selectedTemplate?.aiPrompt;
         const FinalAIPrompt=JSON.stringify(formData)+", "+SelectedPrompt;
